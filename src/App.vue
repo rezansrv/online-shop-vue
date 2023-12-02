@@ -1,7 +1,7 @@
 <template>
   <header>
-    <v-toolbar title="My Shop">
-      <v-btn @click="goToCartView" color="primary" variant="elevated">
+    <v-toolbar color="black" title="My Shop">
+      <v-btn @click="goToCartView" color="secoundry" variant="elevated">
         Items in Cart:{{ selectedProductInCart.quantity }}
       </v-btn>
     </v-toolbar>
@@ -51,6 +51,7 @@ export default {
 </script>
 
 <style scoped>
+
 .cart-items {
   text-align: end;
   padding: 16px;

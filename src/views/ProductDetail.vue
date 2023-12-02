@@ -10,46 +10,39 @@
       </div>
       <div class="product-details">
         <p>Brand: {{ selectedProduct.brand }}</p>
-        <p>Description: {{ selectedProduct.description }}</p>
+        <p class="product-description">Description: {{ selectedProduct.description }}</p>
         <h2>Price: ${{ selectedProduct.price }}</h2>
-        <div>
+        <div class="button-container">
           <v-btn
             variant="elevated"
-            :style="{ backgroundColor: '#3f51b5', marginRight: '8px' }"
+            :style="{ backgroundColor: '#3f51b5', marginRight: '8px', color: 'white' }"
             @click="addToCart"
           >
             Add to cart
           </v-btn>
           <v-btn
-            v-if="selectedProductInCart"
+            v-if="selectedProductInCart.quantity > 0"
             variant="elevated"
-            :style="{ backgroundColor: '#f44336', marginRight: '8px' }"
+            :style="{ backgroundColor: '#f44336', marginRight: '8px', color: 'white' }"
             @click="removeFromCart"
           >
-            Remove from cart
+          <v-icon>mdi-delete</v-icon>
           </v-btn>
-  <!-- ... Your existing code ... -->
-
-  <div v-if="selectedProductInCart.quantity >0" class="quantity-control">
-  <v-btn icon @click="decrementQuantity" class="mr-2"> <!-- Adding margin-right class -->
-    -
-  </v-btn>
-  <span>{{ selectedProductInCart.quantity }}</span>
-  <v-btn icon @click="incrementQuantity" class="ml-2"> <!-- Adding margin-left class -->
-    +
-  </v-btn>
-</div>
-
-
+          <div v-if="selectedProductInCart.quantity > 0" class="quantity-control">
+            <v-btn icon @click="decrementQuantity" class="mr-2">    <v-icon>mdi-minus</v-icon></v-btn>
+            <span>{{ selectedProductInCart.quantity }}</span>
+            <v-btn icon @click="incrementQuantity" class="ml-2">     <v-icon>mdi-plus</v-icon></v-btn>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 import { productsStore } from "@/stores/products";
-import 'vue-material-design-icons/styles.css';
+import "vue-material-design-icons/styles.css";
+import '@mdi/font/css/materialdesignicons.css'
+
 export default {
   name: "ProductDetails",
   methods: {
@@ -99,36 +92,52 @@ export default {
 
 <style scoped>
 .product {
-  display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line on small screens */
-  margin-top: 50px;
+  max-width: 800px;
+  margin: auto;
+  padding: 16px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.product-image {
-  margin-right: 24px;
-  flex: 1 1 300px; /* Set a flexible width for better responsiveness */
+.product-container {
+  display: flex;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
 }
 
 .product-details {
-  flex: 1 1 calc(100% - 300px); /* Take remaining width on large screens, full width on small screens */
+  flex: 1;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8px;
 }
 
 .quantity-control {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
+  margin-top: -8px;
 }
 
+.product-description {
+  margin-top: 16px;
+  color: #616161;
+}
 
-
-@media only screen and (max-width: 600px) {
-  /* Adjust styles for small screens */
-  .product {
-    flex-direction: column; /* Stack items vertically on small screens */
+@media screen and (max-width: 600px) {
+  .product-container {
+    flex-direction: column;
   }
 
-  .product-details {
-    flex: 1 1 100%; /* Full width on small screens */
+  .product-image {
+    margin-right: 0;
+    margin-bottom: 16px;
   }
+  .quantity-control {
+  margin-top: 8px;
+}
 }
 </style>

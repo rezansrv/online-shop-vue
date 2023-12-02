@@ -10,6 +10,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@mdi/font": "^7.3.67",
     "pinia": "^2.1.3",
     "vue": "^3.3.4",
     "vue-material-design-icons": "^5.2.0",

@@ -54,32 +54,33 @@ export default {
   display: flex;
   flex-direction: column;
 }
-  &:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  }
 
-  v-img {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
+.product:hover {
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
+}
 
-  v-card-title {
-    font-weight: bold;
-  }
+v-img {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
 
-  v-card-subtitle {
-    color: #757575;
-  }
+v-card-title {
+  font-weight: bold;
+}
 
-  v-card-text {
-    color: #616161;
-  }
+v-card-subtitle {
+  color: #757575;
+}
 
-  v-card-actions {
-    margin-top: auto;
-  }
+v-card-text {
+  color: #616161;
+}
 
-  v-btn {
-    text-transform: none;
-  }
+v-card-actions {
+  margin-top: auto;
+}
+
+v-btn {
+  text-transform: none;
+}
 </style>
