@@ -2,7 +2,7 @@
   <header>
     <v-toolbar color="black" title="My Shop">
       <v-btn @click="goToCartView" color="secoundry" variant="elevated">
-        Items in Cart:{{ selectedProductInCart.quantity }}
+        Items in Cart: {{ store.cartItemsCount }}
       </v-btn>
     </v-toolbar>
   </header>
@@ -17,7 +17,6 @@ export default {
   data() {
     return {
       store: productsStore(),
-      quantity: 0
     };
   },
   methods: {
@@ -25,29 +24,12 @@ export default {
       this.$router.push({ name: "CartView" });
     },
   },
-  computed:{
-    selectedProduct() {
-      return productsStore().products.find(
-        (item) => item.id === Number(this.$route.params.id)
-      );
-    },
+  computed: {
     selectedProductInCart() {
-      const productInCart = productsStore().cart.find(
-        (item) => {
-          item.id === this.selectedProduct?.id
-          this.quantity = item.quantity
-        }
-        
-      );
-      return productInCart || { quantity:this.quantity  }; // return an object with quantity: 0 if not found
-    }
+      return this.store.cartItemsCount;
+    },
   },
-
-  mounted() {
-    console.log(this.store.cartItemsCount, 'item')
-  }
 };
-
 </script>
 
 <style scoped>

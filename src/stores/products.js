@@ -31,7 +31,16 @@ export const productsStore = defineStore('products', {
     },
 
     removeFromCart(id) {
+      console.log("removeMotodIscall")
       this.cart = this.cart.filter((item) => item.id !== id);
+      const product = this.cart.find((item) => item.id === id);
+      console.log(this.cart)
+      if (product) {
+
+        console.log("shoud be zerooo",product.quantity)
+
+        product.quantity= 0;
+      }
     },
 
     incrementProductQuantity(id) {

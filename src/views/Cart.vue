@@ -72,6 +72,6 @@ export default {
 }
 
 .item-details img {
-  width: 200%;
+  width: 20%;
 }
 </style>
