@@ -1,7 +1,7 @@
 <template>
   <div class="products-list">
-    <v-row no-gutters ccolor="primary"> 
-      <v-col color="primary"
+    <v-row no-gutters> 
+      <v-col 
         v-for="product in store.products"
         :key="product.id"
         cols="12"
@@ -44,8 +44,8 @@ export default {
 
 <style scoped>
 .products-list{
-  background-color: rgb(0, 0, 0);
-  margin-inline: -10px;
+  margin-inline: -20px;
+  padding: 10px;
 }
 
 </style>

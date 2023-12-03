@@ -1,29 +1,25 @@
 <template>
   <v-sheet class="ma-2 pa-2">
-    <v-card class="product" style="max-width: 350px; display: flex; flex-direction: column;">
-
-      <v-img
-        :src="productData.thumbnail"
-        height="200px"
-        cover
-      />
-
+    <v-card
+      class="product"
+      style="max-width: 350px; display: flex; flex-direction: column"
+    >
+      <img :src="productData.thumbnail" class="my-image" cover />
       <v-card-title class="text-h6">{{ productData.brand }}</v-card-title>
 
-      <v-card-subtitle class="mb-2">
-        $ {{ productData.price }}
-      </v-card-subtitle>
+      <v-card-subtitle class="mb-2"> $ {{ productData.price }} </v-card-subtitle>
 
       <v-card-text class="mb-4">
         {{ productData.description }}
       </v-card-text>
 
-      <v-card-actions style="margin-top: auto;">
-        <v-btn @click="goToProductPage(productData.id)" color="primary" >
-          More details
-        </v-btn>
+      <v-card-actions style="margin-top: auto">
+        <v-card-actions style="margin-top: auto; text-align: center">
+          <v-btn @click="goToProductPage(productData.id)" color="primary">
+            More details
+          </v-btn>
+        </v-card-actions>
       </v-card-actions>
-
     </v-card>
   </v-sheet>
 </template>
@@ -38,7 +34,7 @@ export default {
   },
   methods: {
     goToProductPage(productId) {
-      this.$emit('item-clicked', productId);
+      this.$emit("item-clicked", productId);
     },
   },
 };
@@ -59,9 +55,10 @@ export default {
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
 }
 
-v-img {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+.my-image {
+  border-radius: 10px;
+  height: 29vh;
+  width: 100%;
 }
 
 v-card-title {

@@ -29,9 +29,9 @@
           <v-icon>mdi-delete</v-icon>
           </v-btn>
           <div v-if="selectedProductInCart.quantity > 0" class="quantity-control">
-            <v-btn icon @click="decrementQuantity" class="mr-2">    <v-icon>mdi-minus</v-icon></v-btn>
+            <v-btn icon @click="decrementQuantity" class="mr-2"><v-icon>mdi-minus</v-icon></v-btn>
             <span>{{ selectedProductInCart.quantity }}</span>
-            <v-btn icon @click="incrementQuantity" class="ml-2">     <v-icon>mdi-plus</v-icon></v-btn>
+            <v-btn icon @click="incrementQuantity" class="ml-2"><v-icon>mdi-plus</v-icon></v-btn>
           </div>
         </div>
       </div>
@@ -94,8 +94,11 @@ export default {
 .product {
   max-width: 800px;
   margin: auto;
-  padding: 16px;
-  margin-top: 20px;
+  padding: 18px;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -115,12 +118,13 @@ export default {
 .button-container {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 8px;
+  align-items: center;
 }
 
-.quantity-control {
-  margin-top: -8px;
+.quantity-control{
+  margin-top: 10px;
 }
+
 
 .product-description {
   margin-top: 16px;
@@ -137,7 +141,7 @@ export default {
     margin-bottom: 16px;
   }
   .quantity-control {
-  margin-top: 8px;
+  margin-top: 6px;
 }
 }
 </style>
